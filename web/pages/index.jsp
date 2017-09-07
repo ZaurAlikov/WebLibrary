@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="main">
-        <p class="image"><img src="images/book.ico" width="100" height="100" alt="book"></p>
+        <p class="image"><img src="images/logo.png" width="100" height="100" alt="book"></p>
         <h3>Онлайн библиотека</h3>
         <p>Добро пожаловать в онлайн библиотеку, где вы сможете найти любую книгу на ваш вкус.
         Здесь доступны функции поиска, просмотра, сортировки и многие другие.</p>
@@ -21,7 +21,7 @@
           <h5>Для входа введите свои данные</h5>
           <form class="login_form" name="username" action="pages/main.jsp" method="post">
             Имя: <input type="text" name="username" value="" size="20">
-            <input type="submit" value="Войти">
+            <input class="btn" type="submit" value="Войти">
           </form>
         </div>
     </div>

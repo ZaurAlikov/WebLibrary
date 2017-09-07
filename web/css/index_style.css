@@ -3,7 +3,6 @@ body{
     /*background: lightgray;*/
     background-image: url("../images/bg.jpg");
 }
-
 .main{
     background: white;
     width: 800px;
@@ -12,7 +11,6 @@ body{
     padding: 50px;
     border: solid 1px;
 }
-
 .log_div{
     width: 300px;
     margin: 0 auto;
@@ -21,11 +19,9 @@ body{
 .login_form{
     text-align: center;
 }
-
 h3,h5{
     text-align: center;
 }
-
 .image{
     text-align: center;
 }
