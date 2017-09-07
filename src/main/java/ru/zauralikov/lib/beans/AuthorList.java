@@ -10,9 +10,9 @@ import java.util.ArrayList;
 
 public class AuthorList {
     private ArrayList<Author> authorList = new ArrayList<>();
-    Connection conn = null;
-    Statement st = null;
-    ResultSet rs = null;
+    private Connection conn = null;
+    private Statement st = null;
+    private ResultSet rs = null;
 
     private ArrayList<Author> getAuthors(){
 
