@@ -73,10 +73,10 @@ body{
     width: 400px;
     height: 100px;
 }
-/*.td2{*/
-    /*width: 150px;*/
-    /*height: 100px;*/
-/*}*/
+.td2{
+    width: 150px;
+    height: 100px;
+}
 
 .book_title{
     font-size: 15px;
