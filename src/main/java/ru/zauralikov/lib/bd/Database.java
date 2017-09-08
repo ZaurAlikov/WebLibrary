@@ -17,9 +17,9 @@ public class Database {
         try {
             ic = new InitialContext();
             ds = (DataSource)ic.lookup("jdbc/Library");
-            if (conn==null) {
+//            if (conn==null) {
                 conn = ds.getConnection();
-            }
+//            }
         } catch (NamingException e) {
             e.printStackTrace();
         } catch (SQLException e) {

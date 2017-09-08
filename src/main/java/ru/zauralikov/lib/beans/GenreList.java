@@ -10,11 +10,12 @@ import java.util.ArrayList;
 
 public class GenreList {
     private ArrayList<Genre> genreList = new ArrayList<>();
-    private Connection conn = null;
-    private Statement st = null;
-    private ResultSet rs = null;
 
     private ArrayList<Genre> getGenres(){
+
+        Connection conn = null;
+        Statement st = null;
+        ResultSet rs = null;
 
         try {
             conn = Database.getConnection();

@@ -53,17 +53,34 @@ body{
 }
 .sideBar1{
     text-align: left;
-    margin-top: 20px;
+    margin-top: 10px;
     float: left;
     width: 25%;
 }
-.content{
-    text-align: left;
+.book_list{
+    /*text-align: left;*/
     position: relative;
     padding: 10px 0;
     width: 75%;
     /*height: 100%;*/
     float: left;
+}
+.book_table{
+    font-size: 12px;
+}
+
+.td1{
+    width: 400px;
+    height: 100px;
+}
+/*.td2{*/
+    /*width: 150px;*/
+    /*height: 100px;*/
+/*}*/
+
+.book_title{
+    font-size: 15px;
+    font-weight: bold;
 }
 
 ul.nav a:hover, ul.nav a:active, ul.nav a:focus {

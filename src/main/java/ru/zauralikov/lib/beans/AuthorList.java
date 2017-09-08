@@ -10,18 +10,23 @@ import java.util.ArrayList;
 
 public class AuthorList {
     private ArrayList<Author> authorList = new ArrayList<>();
-    private Connection conn = null;
-    private Statement st = null;
-    private ResultSet rs = null;
 
     private ArrayList<Author> getAuthors(){
+
+        Connection conn = null;
+        Statement st = null;
+        ResultSet rs = null;
 
         try {
             conn = Database.getConnection();
             st = conn.createStatement();
             rs = st.executeQuery("SELECT fio FROM author ORDER BY fio");
             while (rs.next()){
-                authorList.add(new Author(rs.getString("fio")));
+                Author author = new Author();
+                author.setId(rs.getLong("id"));
+                author.setName(rs.getString("fio"));
+                author.setBirthday(rs.getDate("birthday"));
+                authorList.add(author);
             }
         } catch (SQLException e) {
             e.printStackTrace();
