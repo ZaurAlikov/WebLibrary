@@ -8,6 +8,7 @@ body{
     text-align: center;
 }
 .main{
+    min-height: 100%;
     display: inline-block;
     background: white;
     width: 1000px;
@@ -40,8 +41,8 @@ body{
     width: 100%;
 }
 .search_div{
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     height: 20px;
     background: lightgray;
 }
@@ -96,8 +97,8 @@ li{
     background-image: -ms-linear-gradient(top, #c7c7c7, #4c4d4d);
     background-image: -o-linear-gradient(top, #c7c7c7, #4c4d4d);
     background-image: linear-gradient(to bottom, #c7c7c7, #4c4d4d);
-    -webkit-border-radius: 28;
-    -moz-border-radius: 28;
+    -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
     border-radius: 28px;
     text-shadow: 1px 1px 3px #666666;
     -webkit-box-shadow: 0px 1px 3px #666666;

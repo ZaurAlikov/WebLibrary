@@ -19,9 +19,12 @@ public class GenreList {
         try {
             conn = Database.getConnection();
             st = conn.createStatement();
-            rs = st.executeQuery("SELECT name FROM genre ORDER BY name");
+            rs = st.executeQuery("SELECT * FROM genre ORDER BY name");
             while (rs.next()){
-                genreList.add(new Genre(rs.getString("name")));
+                Genre genre = new Genre();
+                genre.setId(rs.getLong("id"));
+                genre.setGenre(rs.getString("name"));
+                genreList.add(genre);
             }
         } catch (SQLException e) {
             e.printStackTrace();

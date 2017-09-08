@@ -1,0 +1,28 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<html>
+<head>
+    <title>Онлайн библиотека</title>
+    <link href="../css/main_style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<%--<% request.setCharacterEncoding("UTF-8"); %>--%>
+<div class="main">
+    <div class="header">
+        <div>
+            <img class="logo" src="../images/logo.png" alt="Логотип" name="logo">
+        </div> <%-- close logo div --%>
+        <div class="discr">
+            <h1>Ваша онлайн библиотека</h1>
+        </div> <%-- close discr div --%>
+    </div> <%-- close header div --%>
+    <div class="search_div">
+        <form class="search" name="search" action="" method="post">
+            <input type="text" name="search" value="" size="100">
+            <input class="btn" type="submit" value="Поиск">
+            <select name="search_option">
+                <option>Название</option>
+                <option>Автор</option>
+            </select>
+        </form>
+    </div> <%-- close search div --%>
