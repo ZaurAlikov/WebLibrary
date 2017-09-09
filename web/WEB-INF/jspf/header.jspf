@@ -6,15 +6,24 @@
     <link href="../css/main_style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<%--<% request.setCharacterEncoding("UTF-8"); %>--%>
+<%
+    request.setCharacterEncoding("UTF-8");
+    if (request.getParameter("username") != null){
+       session.setAttribute("usName", request.getParameter("username"));
+    }
+%>
 <div class="main">
     <div class="header">
         <div>
             <img class="logo" src="../images/logo.png" alt="Логотип" name="logo">
         </div> <%-- close logo div --%>
         <div class="discr">
-            <h1>Ваша онлайн библиотека</h1>
+            <h1>Онлайн библиотека</h1>
         </div> <%-- close discr div --%>
+        <div class="welcome_text">
+            <p>Добро пожаловать, <%=session.getAttribute("usName")%>!</p>
+            <p><a style="text-decoration: underline" href="../index.jsp">Выход</a></p>
+        </div> <%-- close welcome div --%>
     </div> <%-- close header div --%>
     <div class="search_div">
         <form class="search" name="search" action="" method="post">

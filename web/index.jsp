@@ -12,6 +12,7 @@
     <link href="css/index_style.css" rel="stylesheet" type="text/css">
   </head>
   <body>
+    <% session.invalidate(); %>
     <div class="main">
         <p class="image"><img src="images/logo.png" width="100" height="100" alt="book"></p>
         <h3>Онлайн библиотека</h3>

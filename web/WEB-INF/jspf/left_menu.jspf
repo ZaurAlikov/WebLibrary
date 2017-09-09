@@ -5,11 +5,35 @@
     <h4>Список жанров:</h4>
     <ul class="nav">
         <jsp:useBean id="ganreList" class="ru.zauralikov.lib.beans.GenreList" scope="application"/>
+
+        <%
+            long selectedGenreId = -1;
+            if (request.getParameter("genre_id") != null){
+                selectedGenreId = Long.valueOf(request.getParameter("genre_id"));
+            } else if (session.getAttribute("genreId") != null){
+                selectedGenreId = Long.valueOf(session.getAttribute("genreId").toString());
+            }
+            session.setAttribute("genreId", selectedGenreId);
+            if (selectedGenreId == 0){
+        %>
+            <li><a style="-webkit-padding-start: 5px; color: #59c1ff" href="book.jsp?genre_id=0&name=Все книги">Все книги</a></li>
+        <%
+            } else {
+        %>
             <li><a href="book.jsp?genre_id=0&name=Все книги">Все книги</a></li>
         <%
+            }
             for (Genre genre : ganreList.getGenreList()) {
+                if (selectedGenreId != -1 && selectedGenreId == genre.getId()){
+        %>
+            <li><a style="-webkit-padding-start: 5px; color: #59c1ff" href="book.jsp?genre_id=<%=genre.getId()%>&name=<%=genre.getGenre()%>"><%=genre.getGenre()%></a></li>
+        <%
+                } else {
         %>
             <li><a href="book.jsp?genre_id=<%=genre.getId()%>&name=<%=genre.getGenre()%>"><%=genre.getGenre()%></a></li>
-        <%}%>
+        <%
+                }
+            }
+        %>
     </ul>
 </div> <%-- close content_left div --%>
