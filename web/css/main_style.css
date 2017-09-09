@@ -62,25 +62,27 @@ body{
     position: relative;
     padding: 10px 0;
     width: 75%;
-    /*height: 100%;*/
     float: left;
 }
-.book_table{
-    font-size: 12px;
+.book_main{
+    text-align: left;
+    float: left;
+    width: 33%;
 }
-
-.td1{
-    width: 400px;
-    height: 100px;
-}
-.td2{
-    width: 150px;
-    height: 100px;
-}
-
 .book_title{
+    height: 50px;
+    text-align: center;
     font-size: 15px;
     font-weight: bold;
+}
+.book_img{
+    text-align: center;
+    /*width: 150px;*/
+    height: 260px;
+}
+.book_disc{
+    text-align: center;
+    font-size: 10px;
 }
 
 ul.nav a:hover, ul.nav a:active, ul.nav a:focus {
