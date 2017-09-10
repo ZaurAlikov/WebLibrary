@@ -45,7 +45,7 @@
 
     <div class="book_main">
         <div class="book_title">
-            <p class="book_title"><%=book.getName()%></p>
+            <p class="book_title"><a style="color: black" href="<%=request.getContextPath()%>/PdfReader?index=<%=list.indexOf(book)%>"a><%=book.getName()%></a></p>
         </div>
         <div class="book_img">
             <img src="<%=request.getContextPath()%>/ShowImage?index=<%=list.indexOf(book)%>" height="250" width="190">
