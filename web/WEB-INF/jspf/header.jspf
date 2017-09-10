@@ -8,7 +8,6 @@
 <body>
 <%
     request.setCharacterEncoding("UTF-8");
-
     String searchString = "";
     if (request.getParameter("search_string") != null){
         searchString = request.getParameter("search_string");
@@ -19,7 +18,6 @@
         session.setAttribute("search_string", searchString);
     }
 
-
     if (request.getParameter("username") != null){
        session.setAttribute("usName", request.getParameter("username"));
     }
@@ -29,8 +27,6 @@
         typeSearch = request.getParameter("search_option");
         session.setAttribute("srch_opt", typeSearch);
     }
-
-
 %>
 <div class="main">
     <div class="header">

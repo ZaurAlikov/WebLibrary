@@ -1,6 +1,12 @@
 package ru.zauralikov.lib.beans;
 
+import ru.zauralikov.lib.bd.Database;
+
 import java.awt.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Date;
 
 public class Book {
@@ -15,9 +21,13 @@ public class Book {
     private String publisher;
     private byte[] image;
 
-    public long getId() { return id; }
+    public long getId() {
+        return id;
+    }
 
-    public void setId(long id) { this.id = id; }
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -83,7 +93,45 @@ public class Book {
         this.publisher = publisher;
     }
 
-    public byte[] getImage() { return image; }
+    public byte[] getImage() {
+        return image;
+    }
 
-    public void setImage(byte[] image) { this.image = image; }
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public void fillPdfContent() {
+        Connection conn = null;
+        Statement st = null;
+        ResultSet rs = null;
+
+        conn = Database.getConnection();
+        try {
+            st = conn.createStatement();
+            rs = st.executeQuery("SELECT content FROM book WHERE id =" + this.getId());
+            while (rs.next()) {
+                this.setContent(rs.getBytes("content"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 }
+

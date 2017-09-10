@@ -15,12 +15,20 @@
         <servlet-name>ShowImage</servlet-name>
         <url-pattern>/ShowImage</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>PdfReader</servlet-name>
+        <servlet-class>ru.zauralikov.lib.servlets.PdfReader</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PdfReader</servlet-name>
+        <url-pattern>/PdfReader</url-pattern>
+    </servlet-mapping>
+
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-
     <jsp-config>
         <jsp-property-group>
             <display-name>header_and_footer</display-name>

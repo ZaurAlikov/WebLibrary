@@ -56,7 +56,7 @@
             <br><strong>Количество страниц: </strong><%=book.getPageCount()%>
             <br><strong>Год издания: </strong><%=book.getPublishDate()%>
             <br><strong>Автор: </strong><%=book.getAuthor()%>
-            <p style="margin: 10px;"><a style="text-decoration: underline" href="#">Читать</a> </p>
+            <p style="margin: 10px;"><a style="text-decoration: underline" href="<%=request.getContextPath()%>/PdfReader?index=<%=list.indexOf(book)%>">Читать</a> </p>
         </div>
     </div>
     <%}%>
