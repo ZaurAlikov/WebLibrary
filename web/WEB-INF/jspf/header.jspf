@@ -8,9 +8,29 @@
 <body>
 <%
     request.setCharacterEncoding("UTF-8");
+
+    String searchString = "";
+    if (request.getParameter("search_string") != null){
+        searchString = request.getParameter("search_string");
+        session.setAttribute("search_string", searchString);
+    } else if (session.getAttribute("search_string") != null){
+        searchString = session.getAttribute("search_string").toString();
+    } else {
+        session.setAttribute("search_string", searchString);
+    }
+
+
     if (request.getParameter("username") != null){
        session.setAttribute("usName", request.getParameter("username"));
     }
+
+        String typeSearch = "";
+    if (request.getParameter("search_option") != null){
+        typeSearch = request.getParameter("search_option");
+        session.setAttribute("srch_opt", typeSearch);
+    }
+
+
 %>
 <div class="main">
     <div class="header">
@@ -26,12 +46,22 @@
         </div> <%-- close welcome div --%>
     </div> <%-- close header div --%>
     <div class="search_div">
-        <form class="search" name="search" action="" method="post">
-            <input type="text" name="search" value="" size="100">
+        <form class="search" name="search_form" action="book.jsp" method="GET">
+            <input type="text" name="search_string" value="<%=searchString%>" size="100">
             <input class="btn" type="submit" value="Поиск">
             <select name="search_option">
-                <option>Название</option>
-                <option>Автор</option>
+                <%  if (!typeSearch.equals("") && session.getAttribute("srch_opt").equals("Назание")){%>
+                    <option selected>Название</option>
+                    <option>Автор</option>
+                <%} else if(!typeSearch.equals("") && session.getAttribute("srch_opt").equals("Автор")){%>
+                    <option>Название</option>
+                    <option selected>Автор</option>
+                <%} else {%>
+                    <option>Название</option>
+                    <option>Автор</option>
+                <%}
+                    session.setAttribute("search_string", "");
+                %>
             </select>
         </form>
     </div> <%-- close search div --%>

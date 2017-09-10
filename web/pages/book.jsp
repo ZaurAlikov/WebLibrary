@@ -1,11 +1,11 @@
 <%@ page import="ru.zauralikov.lib.beans.Book" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="ru.zauralikov.lib.enums.SearchType" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../WEB-INF/jspf/left_menu.jspf"%>
 
 <%request.setCharacterEncoding("UTF-8");
-    long genreId;
-    genreId = Long.valueOf(request.getParameter("genre_id"));
+    long genreId = -1;
 %>
 
 <jsp:useBean id="bookList" class="ru.zauralikov.lib.beans.BookList" scope="page"/>
@@ -13,11 +13,23 @@
 <div class="book_list">
 
     <%
-        ArrayList<Book> list;
-        if (genreId == 0){
-            list = bookList.getAllBooks();
-        } else {
-            list = bookList.getBooksByGenre(genreId);
+        ArrayList<Book> list = null;
+        if (request.getParameter("genre_id") != null){
+            genreId = Long.valueOf(request.getParameter("genre_id"));
+            if (genreId == 0){
+                list = bookList.getAllBooks();
+            } else {
+                list = bookList.getBooksByGenre(genreId);
+            }
+        } else if (request.getParameter("search_string") != null){
+            String searchStr = request.getParameter("search_string");
+            SearchType searchType = SearchType.TITLE;
+            if (request.getParameter("search_option").equals("Автор")){
+                searchType = SearchType.AUTHOR;
+            }
+            if (searchStr != null && searchStr.trim() != ""){
+                list = bookList.getBooksBySearch(searchStr, searchType);
+            }
         }
     %>
 
